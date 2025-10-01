@@ -14,7 +14,7 @@ cat /proc/cpuinfo | grep flags
 cat /proc/cpuinfo | grep avx
 cat /proc/cpuinfo | code -
 
-go clean -x
+go clean
 CGO_ENABLED=0 GOARCH=amd64 GOAMD64=v1 go build -tags=amd64v1 -trimpath=true
 CGO_ENABLED=0 GOARCH=amd64 GOAMD64=v2 go build -tags=amd64v2 -trimpath=true
 CGO_ENABLED=0 GOARCH=amd64 GOAMD64=v3 go build -tags=amd64v3 -trimpath=true
@@ -23,8 +23,5 @@ CGO_ENABLED=0 GOARCH=amd64 go build -trimpath=true
 
 go version -m app
 ./app
-# Result: [11 0 0 0 22 0 0 0 33 0 0 0 44 0 0 0 55 0 0 0 66 0 0 0 77 0 0 0 88 0 0 0]
-
-# This program can only be run on AMD64 processors with v4 microarchitecture support.
 
 ```
